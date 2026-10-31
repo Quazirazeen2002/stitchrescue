@@ -60,6 +60,10 @@ export function WorkspaceShell({children}: {children: React.ReactNode}) {
           ))}
         </nav>
         <div className="sidebar-bottom">
+          <Link href="/evaluation" className="sidebar-visit-link" style={{background:'rgba(255,208,0,0.18)',border:'1px solid #ffd000',color:'#ffd000',fontWeight:700,marginBottom:8}}>
+            <span>⚡ Judge Test Case</span>
+            <ArrowUpRight size={13}/>
+          </Link>
           <Link href="/" className="sidebar-visit-link">
             <span>Visit public website</span>
             <ArrowUpRight size={13}/>
@@ -82,6 +86,9 @@ export function WorkspaceShell({children}: {children: React.ReactNode}) {
             <strong>{title}</strong>
           </div>
           <div className="topbar-right">
+            <Link href="/evaluation" style={{background:'#ffd000',color:'#001f3b',fontWeight:800,fontSize:11,padding:'5px 12px',borderRadius:9999,display:'inline-flex',alignItems:'center',gap:4,textDecoration:'none',boxShadow:'0 2px 0 #b39200',textTransform:'uppercase'}}>
+              ⚡ Judge Test Case
+            </Link>
             <span className="workspace-pill">Local prototype</span>
             <Link href="/login" className="topbar-manager-link">
               <span>Manager sign in</span>

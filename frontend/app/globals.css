@@ -3712,3 +3712,164 @@ tr:hover td {
   }
 }
 
+/* ==========================================================================
+   FEASTABLES JUDGE EVALUATION TEST CASE PAGE STYLES
+   ========================================================================== */
+
+.hero-flavor-eval {
+  background: radial-gradient(circle at 15% 20%, rgba(255, 208, 0, 0.28) 0%, transparent 50%),
+              radial-gradient(circle at 85% 25%, rgba(21, 204, 255, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(245, 69, 136, 0.18) 0%, transparent 60%),
+              linear-gradient(175deg, #001428 0%, #001f3b 50%, #002d54 100%);
+  color: #ffffff;
+}
+
+.eval-step-container {
+  background: #ffffff;
+  border-radius: 22px;
+  border: 3px solid #001f3b;
+  box-shadow: 8px 8px 0 #001f3b;
+  overflow: hidden;
+  margin-bottom: 35px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.eval-step-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 0 #001f3b;
+}
+
+.eval-step-header {
+  background: #001f3b;
+  color: #ffffff;
+  padding: 18px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.eval-step-tag {
+  background: #ffd000;
+  color: #001f3b;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eval-step-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.eval-step-body {
+  padding: 26px;
+}
+
+.eval-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.copy-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0f7fc;
+  border: 1.5px solid #cce3f2;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: all;
+}
+
+.copy-chip:hover {
+  background: #e6f8fd;
+  border-color: #15ccff;
+  transform: translateY(-1px);
+}
+
+.copy-chip-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5f758d;
+}
+
+.copy-chip-val {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #001f3b;
+  font-family: monospace;
+}
+
+.eval-expected-box {
+  background: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 18px;
+}
+
+.eval-expected-box h4 {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0b7a42;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eval-expected-box p {
+  font-size: 13.5px;
+  color: #064e28;
+  line-height: 1.6;
+}
+
+.eval-instruction-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eval-instruction-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #001f3b;
+  line-height: 1.5;
+}
+
+.eval-instruction-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffd000;
+  color: #001f3b;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+
