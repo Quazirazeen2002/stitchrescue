@@ -1,0 +1,1 @@
+"""StitchRescue REST application."""

@@ -1,0 +1,2671 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "StitchRescue API",
+    "version": "0.3.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/manager": {
+      "post": {
+        "summary": "Login",
+        "operationId": "login_api_v1_auth_manager_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings": {
+      "get": {
+        "summary": "Settings",
+        "operationId": "settings_api_v1_settings_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dashboard": {
+      "get": {
+        "summary": "Dashboard",
+        "operationId": "dashboard_api_v1_dashboard_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Dashboard Api V1 Dashboard Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders": {
+      "get": {
+        "summary": "Orders",
+        "operationId": "orders_api_v1_orders_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Orders Api V1 Orders Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/incidents": {
+      "get": {
+        "summary": "Incidents",
+        "operationId": "incidents_api_v1_incidents_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Incidents Api V1 Incidents Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Incident",
+        "operationId": "incident_api_v1_incidents_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IncidentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fabric-rolls": {
+      "get": {
+        "summary": "Rolls",
+        "operationId": "rolls_api_v1_fabric_rolls_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RollResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Rolls Api V1 Fabric Rolls Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Roll",
+        "operationId": "create_roll_api_v1_fabric_rolls_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RollCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RollResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fabric-rolls/{roll_id}": {
+      "get": {
+        "summary": "Roll Detail",
+        "operationId": "roll_detail_api_v1_fabric_rolls__roll_id__get",
+        "parameters": [
+          {
+            "name": "roll_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Roll Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fabric-rolls/{roll_id}/status": {
+      "patch": {
+        "summary": "Roll Status",
+        "operationId": "roll_status_api_v1_fabric_rolls__roll_id__status_patch",
+        "parameters": [
+          {
+            "name": "roll_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Roll Id"
+            }
+          },
+          {
+            "name": "x-manager-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Manager-Token"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RollStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fabric-rolls/{roll_id}/images": {
+      "post": {
+        "summary": "Upload",
+        "operationId": "upload_api_v1_fabric_rolls__roll_id__images_post",
+        "parameters": [
+          {
+            "name": "roll_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Roll Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_api_v1_fabric_rolls__roll_id__images_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/images/{image_id}/file": {
+      "get": {
+        "summary": "Image File",
+        "operationId": "image_file_api_v1_images__image_id__file_get",
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Image Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/assets/{resource}": {
+      "get": {
+        "summary": "Asset",
+        "operationId": "asset_api_v1_assets__resource__get",
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Resource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/defects": {
+      "post": {
+        "summary": "Defect",
+        "operationId": "defect_api_v1_defects_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ObservationCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/defects/{observation_id}/verification": {
+      "post": {
+        "summary": "Verification",
+        "operationId": "verification_api_v1_defects__observation_id__verification_post",
+        "parameters": [
+          {
+            "name": "observation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Observation Id"
+            }
+          },
+          {
+            "name": "x-manager-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Manager-Token"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Verification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/production-batches": {
+      "get": {
+        "summary": "Batches",
+        "operationId": "batches_api_v1_production_batches_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Batch",
+        "operationId": "batch_api_v1_production_batches_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/production-batches/{batch_id}/allocations": {
+      "post": {
+        "summary": "Allocation",
+        "operationId": "allocation_api_v1_production_batches__batch_id__allocations_post",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Allocation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/machine-events": {
+      "get": {
+        "summary": "Events",
+        "operationId": "events_api_v1_machine_events_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Events Api V1 Machine Events Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Event",
+        "operationId": "event_api_v1_machine_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MachineEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/linewatch/{batch_id}": {
+      "get": {
+        "summary": "Trace",
+        "operationId": "trace_api_v1_linewatch__batch_id__get",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/linewatch/{batch_id}/investigate": {
+      "post": {
+        "summary": "Investigate Batch",
+        "operationId": "investigate_batch_api_v1_linewatch__batch_id__investigate_post",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/inspections": {
+      "post": {
+        "summary": "Inspection",
+        "operationId": "inspection_api_v1_inspections_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_inspection_api_v1_inspections_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/images/{image_id}/segment": {
+      "post": {
+        "summary": "Segment",
+        "operationId": "segment_api_v1_images__image_id__segment_post",
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Image Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SegmentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/segmentations/{run_id}/evaluate": {
+      "post": {
+        "summary": "Evaluate",
+        "operationId": "evaluate_api_v1_segmentations__run_id__evaluate_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_evaluate_api_v1_segmentations__run_id__evaluate_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order-rescue/calculate": {
+      "post": {
+        "summary": "Calculate",
+        "operationId": "calculate_api_v1_order_rescue_calculate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecoveryInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecoveryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order-rescue/plans": {
+      "get": {
+        "summary": "Plans",
+        "operationId": "plans_api_v1_order_rescue_plans_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Save Plan",
+        "operationId": "save_plan_api_v1_order_rescue_plans_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order-rescue/plans/{plan_id}": {
+      "get": {
+        "summary": "Plan",
+        "operationId": "plan_api_v1_order_rescue_plans__plan_id__get",
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Plan Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order-rescue/recommend": {
+      "post": {
+        "summary": "Recommend",
+        "operationId": "recommend_api_v1_order_rescue_recommend_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecoveryInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/approvals": {
+      "get": {
+        "summary": "Approvals",
+        "operationId": "approvals_api_v1_approvals_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ApprovalResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Approvals Api V1 Approvals Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Approval",
+        "operationId": "approval_api_v1_approvals_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{approval_id}/decision": {
+      "post": {
+        "summary": "Decision",
+        "operationId": "decision_api_v1_approvals__approval_id__decision_post",
+        "parameters": [
+          {
+            "name": "approval_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Approval Id"
+            }
+          },
+          {
+            "name": "x-manager-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Manager-Token"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecision"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/audit": {
+      "get": {
+        "summary": "Audit History",
+        "operationId": "audit_history_api_v1_audit_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reports": {
+      "get": {
+        "summary": "Reports",
+        "operationId": "reports_api_v1_reports_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Reports Api V1 Reports Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/agents/investigate": {
+      "post": {
+        "summary": "Agent Investigate",
+        "operationId": "agent_investigate_api_v1_agents_investigate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestigationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/knowledge": {
+      "get": {
+        "summary": "Knowledge",
+        "operationId": "knowledge_api_v1_knowledge_get",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Query"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/demo-requests": {
+      "post": {
+        "summary": "Demo Request",
+        "operationId": "demo_request_api_v1_demo_requests_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Allocation": {
+        "properties": {
+          "roll_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Roll Id"
+          },
+          "allocated_length_m": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Allocated Length M"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "roll_id",
+          "allocated_length_m",
+          "actor"
+        ],
+        "title": "Allocation"
+      },
+      "ApprovalDecision": {
+        "properties": {
+          "decision": {
+            "type": "string",
+            "enum": [
+              "APPROVED",
+              "REJECTED"
+            ],
+            "title": "Decision"
+          },
+          "decided_by": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Decided By"
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Notes"
+          },
+          "human_confirmation": {
+            "type": "boolean",
+            "const": true,
+            "title": "Human Confirmation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "decision",
+          "decided_by",
+          "notes",
+          "human_confirmation"
+        ],
+        "title": "ApprovalDecision"
+      },
+      "ApprovalRequest": {
+        "properties": {
+          "plan_id": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Plan Id"
+          },
+          "requested_by": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Requested By"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "plan_id",
+          "requested_by"
+        ],
+        "title": "ApprovalRequest"
+      },
+      "ApprovalResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "recovery_plan_id": {
+            "type": "integer",
+            "title": "Recovery Plan Id"
+          },
+          "requested_by": {
+            "type": "string",
+            "title": "Requested By"
+          },
+          "decision": {
+            "type": "string",
+            "title": "Decision"
+          },
+          "decision_notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision Notes"
+          },
+          "decided_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decided By"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "decided_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decided At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "recovery_plan_id",
+          "requested_by",
+          "decision",
+          "created_at"
+        ],
+        "title": "ApprovalResponse"
+      },
+      "BatchCreate": {
+        "properties": {
+          "batch_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Batch Id"
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Order Id"
+          },
+          "cutting_line": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Cutting Line"
+          },
+          "sewing_line": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Sewing Line"
+          },
+          "planned_quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Planned Quantity"
+          },
+          "produced_quantity": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Produced Quantity",
+            "default": 0
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PLANNED",
+              "IN_PROGRESS",
+              "COMPLETED",
+              "ON_HOLD"
+            ],
+            "title": "Status",
+            "default": "PLANNED"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "batch_id",
+          "order_id",
+          "cutting_line",
+          "sewing_line",
+          "planned_quantity",
+          "actor"
+        ],
+        "title": "BatchCreate"
+      },
+      "Body_evaluate_api_v1_segmentations__run_id__evaluate_post": {
+        "properties": {
+          "annotation": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Annotation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "annotation"
+        ],
+        "title": "Body_evaluate_api_v1_segmentations__run_id__evaluate_post"
+      },
+      "Body_inspection_api_v1_inspections_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          },
+          "annotation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Annotation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_inspection_api_v1_inspections_post"
+      },
+      "Body_upload_api_v1_fabric_rolls__roll_id__images_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file",
+          "actor"
+        ],
+        "title": "Body_upload_api_v1_fabric_rolls__roll_id__images_post"
+      },
+      "DemoRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "email": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 3,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "title": "Email"
+          },
+          "company": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Company"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 5000,
+            "minLength": 1,
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "company",
+          "message"
+        ],
+        "title": "DemoRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "version"
+        ],
+        "title": "HealthResponse"
+      },
+      "ImageResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "roll_id": {
+            "type": "string",
+            "title": "Roll Id"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "width_px": {
+            "type": "integer",
+            "title": "Width Px"
+          },
+          "height_px": {
+            "type": "integer",
+            "title": "Height Px"
+          },
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "uploaded_by": {
+            "type": "string",
+            "title": "Uploaded By"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "roll_id",
+          "sha256",
+          "width_px",
+          "height_px",
+          "media_type",
+          "uploaded_by",
+          "created_at"
+        ],
+        "title": "ImageResponse"
+      },
+      "IncidentCreate": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Order Id"
+          },
+          "defect_label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Defect Label"
+          },
+          "affected_quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Affected Quantity"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "order_id",
+          "defect_label",
+          "affected_quantity",
+          "actor"
+        ],
+        "title": "IncidentCreate"
+      },
+      "InvestigationRequest": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Order Id"
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 8000,
+            "minLength": 1,
+            "title": "Question"
+          },
+          "batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "order_id",
+          "question"
+        ],
+        "title": "InvestigationRequest"
+      },
+      "LoginInput": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "token"
+        ],
+        "title": "LoginInput"
+      },
+      "MachineEvent": {
+        "properties": {
+          "machine_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Machine Id"
+          },
+          "production_line": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Production Line"
+          },
+          "event_type": {
+            "type": "string",
+            "enum": [
+              "MAINTENANCE",
+              "BREAKDOWN",
+              "CLEANING",
+              "LUBRICATION",
+              "INSPECTION"
+            ],
+            "title": "Event Type"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Description"
+          },
+          "event_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Event Time"
+          },
+          "recorded_by": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Recorded By"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "machine_id",
+          "production_line",
+          "event_type",
+          "description",
+          "event_time",
+          "recorded_by"
+        ],
+        "title": "MachineEvent"
+      },
+      "ObservationCreate": {
+        "properties": {
+          "roll_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Roll Id"
+          },
+          "image_id": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Image Id"
+          },
+          "defect_label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Defect Label"
+          },
+          "evidence_source": {
+            "type": "string",
+            "enum": [
+              "HUMAN_REPORTED",
+              "BDFD9_GROUND_TRUTH",
+              "MODEL_PREDICTION"
+            ],
+            "title": "Evidence Source"
+          },
+          "position_m": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position M"
+          },
+          "width_position": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Width Position"
+          },
+          "bbox": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 4
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bbox"
+          },
+          "segmentation_run_id": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Segmentation Run Id"
+          },
+          "model_confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Confidence"
+          },
+          "inspector_notes": {
+            "type": "string",
+            "title": "Inspector Notes",
+            "default": ""
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "roll_id",
+          "image_id",
+          "defect_label",
+          "evidence_source",
+          "actor"
+        ],
+        "title": "ObservationCreate"
+      },
+      "PlanCreate": {
+        "properties": {
+          "inputs": {
+            "$ref": "#/components/schemas/RecoveryInput"
+          },
+          "selected_strategy": {
+            "type": "string",
+            "enum": [
+              "REWORK",
+              "REPLACEMENT",
+              "STOCK_REALLOCATION",
+              "PARTIAL_SHIPMENT"
+            ],
+            "title": "Selected Strategy"
+          },
+          "incident_id": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Incident Id"
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "requested_by": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Requested By"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "inputs",
+          "selected_strategy",
+          "evidence",
+          "requested_by"
+        ],
+        "title": "PlanCreate"
+      },
+      "RecoveryInput": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Order Id"
+          },
+          "accepted_quantity": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Accepted Quantity"
+          },
+          "affected_quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Affected Quantity"
+          },
+          "available_hours": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Available Hours"
+          },
+          "rework_cost_per_unit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Rework Cost Per Unit"
+          },
+          "rework_capacity_per_hour": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Rework Capacity Per Hour"
+          },
+          "replacement_cost_per_unit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Replacement Cost Per Unit"
+          },
+          "replacement_capacity_per_hour": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Replacement Capacity Per Hour"
+          },
+          "replacement_material_units": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Replacement Material Units"
+          },
+          "stock_quantity": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Stock Quantity"
+          },
+          "stock_unit_cost": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Stock Unit Cost"
+          },
+          "stock_handling_hours": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Stock Handling Hours"
+          },
+          "material_compatible": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Material Compatible"
+          },
+          "buyer_spec_compatible": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Buyer Spec Compatible"
+          },
+          "reinspection_authorized": {
+            "type": "boolean",
+            "title": "Reinspection Authorized",
+            "default": false
+          },
+          "capacity_confirmed": {
+            "type": "boolean",
+            "title": "Capacity Confirmed",
+            "default": false
+          },
+          "buyer_partial_authorized": {
+            "type": "boolean",
+            "title": "Buyer Partial Authorized",
+            "default": false
+          },
+          "assumptions": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Assumptions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "order_id",
+          "accepted_quantity",
+          "affected_quantity",
+          "available_hours",
+          "rework_cost_per_unit",
+          "rework_capacity_per_hour",
+          "replacement_cost_per_unit",
+          "replacement_capacity_per_hour",
+          "replacement_material_units",
+          "stock_quantity",
+          "stock_unit_cost",
+          "stock_handling_hours",
+          "assumptions"
+        ],
+        "title": "RecoveryInput"
+      },
+      "RecoveryResponse": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "title": "Order Id"
+          },
+          "order_quantity": {
+            "type": "integer",
+            "title": "Order Quantity"
+          },
+          "accepted_quantity": {
+            "type": "integer",
+            "title": "Accepted Quantity"
+          },
+          "affected_quantity": {
+            "type": "integer",
+            "title": "Affected Quantity"
+          },
+          "recovery_target": {
+            "type": "integer",
+            "title": "Recovery Target"
+          },
+          "available_hours": {
+            "type": "number",
+            "title": "Available Hours"
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "scenario_relationship": {
+            "type": "string",
+            "title": "Scenario Relationship"
+          },
+          "inputs": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Inputs"
+          },
+          "scenarios": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioResponse"
+            },
+            "type": "array",
+            "title": "Scenarios"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "order_quantity",
+          "accepted_quantity",
+          "affected_quantity",
+          "recovery_target",
+          "available_hours",
+          "currency",
+          "scenario_relationship",
+          "inputs",
+          "scenarios"
+        ],
+        "title": "RecoveryResponse"
+      },
+      "RollCreate": {
+        "properties": {
+          "roll_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Roll Id"
+          },
+          "supplier": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Supplier"
+          },
+          "fabric_type": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Fabric Type"
+          },
+          "composition": {
+            "type": "string",
+            "title": "Composition",
+            "default": ""
+          },
+          "color": {
+            "type": "string",
+            "title": "Color",
+            "default": ""
+          },
+          "length_m": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Length M"
+          },
+          "width_cm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Width Cm"
+          },
+          "gsm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gsm"
+          },
+          "purchase_order": {
+            "type": "string",
+            "title": "Purchase Order",
+            "default": ""
+          },
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Order Id"
+          },
+          "received_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Received Date"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "roll_id",
+          "supplier",
+          "fabric_type",
+          "length_m",
+          "order_id",
+          "actor"
+        ],
+        "title": "RollCreate"
+      },
+      "RollResponse": {
+        "properties": {
+          "roll_id": {
+            "type": "string",
+            "title": "Roll Id"
+          },
+          "supplier": {
+            "type": "string",
+            "title": "Supplier"
+          },
+          "fabric_type": {
+            "type": "string",
+            "title": "Fabric Type"
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color"
+          },
+          "length_m": {
+            "type": "number",
+            "title": "Length M"
+          },
+          "order_id": {
+            "type": "string",
+            "title": "Order Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "composition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composition"
+          },
+          "width_cm": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Width Cm"
+          },
+          "gsm": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gsm"
+          },
+          "purchase_order": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Purchase Order"
+          },
+          "received_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Received Date"
+          },
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "roll_id",
+          "supplier",
+          "fabric_type",
+          "length_m",
+          "order_id",
+          "status"
+        ],
+        "title": "RollResponse"
+      },
+      "RollStatus": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "RECEIVED",
+              "UNDER_INSPECTION",
+              "ON_HOLD",
+              "QUALITY_CLEARED",
+              "CONSUMED"
+            ],
+            "title": "Status"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Actor"
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "actor",
+          "notes"
+        ],
+        "title": "RollStatus"
+      },
+      "ScenarioResponse": {
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "title": "Strategy"
+          },
+          "recoverable_quantity": {
+            "type": "integer",
+            "title": "Recoverable Quantity"
+          },
+          "unrecovered_quantity": {
+            "type": "integer",
+            "title": "Unrecovered Quantity"
+          },
+          "estimated_cost_bdt": {
+            "type": "number",
+            "title": "Estimated Cost Bdt"
+          },
+          "estimated_hours": {
+            "type": "number",
+            "title": "Estimated Hours"
+          },
+          "deadline_fits": {
+            "type": "boolean",
+            "title": "Deadline Fits"
+          },
+          "deadline_feasibility": {
+            "type": "string",
+            "title": "Deadline Feasibility"
+          },
+          "required_approvals": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Approvals"
+          },
+          "assumptions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Assumptions"
+          },
+          "missing_information": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing Information"
+          },
+          "potential_penalty_exposure_bdt": {
+            "type": "number",
+            "title": "Potential Penalty Exposure Bdt"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "strategy",
+          "recoverable_quantity",
+          "unrecovered_quantity",
+          "estimated_cost_bdt",
+          "estimated_hours",
+          "deadline_fits",
+          "deadline_feasibility",
+          "required_approvals",
+          "assumptions",
+          "missing_information",
+          "potential_penalty_exposure_bdt"
+        ],
+        "title": "ScenarioResponse"
+      },
+      "SegmentInput": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "title": "SegmentInput"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Verification": {
+        "properties": {
+          "decision": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "REJECTED"
+            ],
+            "title": "Decision"
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Notes"
+          },
+          "inspector": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Inspector"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "decision",
+          "notes",
+          "inspector"
+        ],
+        "title": "Verification"
+      }
+    }
+  }
+}
